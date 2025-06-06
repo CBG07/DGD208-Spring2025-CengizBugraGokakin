@@ -16,13 +16,20 @@ public class Game
         
         // Subscribe to pet events
         _petManager.OnPetAdded += (sender, pet) => Console.WriteLine($"New pet added: {pet}");
-        _petManager.OnPetRemoved += (sender, pet) => Console.WriteLine($"Pet has died: {pet}");
+        _petManager.OnPetRemoved += async (sender, pet) =>
+        {
+            Console.WriteLine($"Pet has died: {pet}");
+            await Task.Delay(2000);
+        };
     }
     
     public async Task GameLoop()
     {
         // Initialize the game
         Initialize();
+
+        Console.WriteLine("\nPress any key to start...");
+        Console.ReadKey();
         
         // Start the stat decrease loop
         _ = _petManager.StartStatDecrease();
@@ -47,7 +54,7 @@ public class Game
     private void Initialize()
     {
         Console.WriteLine("Welcome to Pet Simulator!");
-        Console.WriteLine("Created by: [Your Name] - [Your Student Number]");
+        Console.WriteLine("Created by: [Cengiz Buğra Gökakın] - [2305041076]");
     }
     
     private string GetUserInput()
@@ -116,14 +123,18 @@ public class Game
         if (pets.Count == 0)
         {
             Console.WriteLine("You don't have any pets yet!");
-            return;
         }
-        
-        Console.WriteLine("\nYour pets:");
-        foreach (var pet in pets)
+        else
         {
-            Console.WriteLine(pet);
+            Console.WriteLine("\nYour pets:");
+            foreach (var pet in pets)
+            {
+                Console.WriteLine(pet);
+            }
         }
+
+        Console.WriteLine("\nPress any key to continue...");
+        Console.ReadLine();
     }
     
     private async Task UseItem()
@@ -132,6 +143,8 @@ public class Game
         if (pets.Count == 0)
         {
             Console.WriteLine("You don't have any pets to use items on!");
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
             return;
         }
         
