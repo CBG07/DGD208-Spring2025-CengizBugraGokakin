@@ -3,7 +3,6 @@ C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net7.0\P
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net7.0\PetSimulator.runtimeconfig.json
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net7.0\PetSimulator.dll
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net7.0\PetSimulator.pdb
-C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\PetSimulator.csproj.AssemblyReference.cache
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\PetSimulator.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\PetSimulator.AssemblyInfoInputs.cache
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\PetSimulator.AssemblyInfo.cs
@@ -13,3 +12,4 @@ C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\r
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\PetSimulator.pdb
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\PetSimulator.genruntimeconfig.cache
 C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\ref\PetSimulator.dll
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net7.0\PetSimulator.sourcelink.json

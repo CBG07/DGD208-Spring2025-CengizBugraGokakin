@@ -7,47 +7,47 @@ namespace DGD208_spring2025_CengizBugraGokakin
 {
 public class Game
 {
-    private bool _isRunning; // Oyun döngüsünün çalışıp çalışmadığını kontrol eder
-    private readonly PetManager _petManager; // Evcil hayvanları yöneten sınıf
+    private bool _isRunning; // Controls whether the game loop is running
+    private readonly PetManager _petManager; // Class that manages pets
 
     public Game()
     {
         _petManager = new PetManager();
         
-        // Evcil hayvan eklendiğinde tetiklenen olaya abone ol
+        // Subscribe to the event triggered when a pet is added
         _petManager.OnPetAdded += (sender, pet) => Console.WriteLine($"New pet added: {pet}");
         
-        // Evcil hayvan öldüğünde tetiklenen olaya abone ol
+        // Subscribe to the event triggered when a pet dies
         _petManager.OnPetRemoved += async (sender, pet) =>
         {
             Console.WriteLine($"Pet has died: {pet}");
-            await Task.Delay(2000); // 2 saniye bekle
+            await Task.Delay(2000); // 2 seconds wait
         };
     }
 
     public async Task GameLoop()
     {
-        // Oyunu başlat
+        // Start the game
         Initialize();
 
         Console.WriteLine("\nPress any key to start...");
         Console.ReadKey();
         
-        // Evcil hayvanların istatistiklerini azaltmaya başla
+        // Start decreasing pet statistics
         _ = _petManager.StartStatDecrease();
         
-        // Ana oyun döngüsü
+        // Main game loop
         _isRunning = true;
         while (_isRunning)
         {
-            // Menü göster ve kullanıcıdan seçim al
+            // Show menu and get user selection
             string userChoice = GetUserInput();
             
-            // Kullanıcı seçimini işle
+            // Process user selection
             await ProcessUserChoice(userChoice);
         }
         
-        // Oyun bittiğinde istatistik azaltmayı durdur
+        // Stop decreasing statistics when game ends
         _petManager.StopStatDecrease();
         
         Console.WriteLine("Thanks for playing!");
@@ -55,14 +55,14 @@ public class Game
 
     private void Initialize()
     {
-        // Başlangıç mesajı
+        // Initial message
         Console.WriteLine("Welcome to Pet Simulator!");
-        Console.WriteLine("Created by: [Cengiz Buğra Gökakın] - [2305041076]");
+        Console.WriteLine("Created by: [Cengiz Bugra Gokakin] - [2305041076]");
     }
 
     private string GetUserInput()
     {
-        // Ana menü seçenekleri
+        // Main menu options
         var menuItems = new List<string>
         {
             "1. Adopt a new pet",
@@ -71,39 +71,39 @@ public class Game
             "4. Exit game"
         };
         
-        // Menü nesnesi oluştur ve kullanıcı seçimini al
+        // Create menu object and get user selection
         var menu = new Menu<string>("Main Menu", menuItems, item => item);
         var selection = menu.ShowAndGetSelection();
         if (selection == null) return "";
-        return selection[0].ToString(); // Seçilen menü numarasını döndür
+        return selection[0].ToString(); // Return selected menu number
     }
 
     private async Task ProcessUserChoice(string choice)
     {
-        // Kullanıcının seçimine göre işlemleri gerçekleştir
+        // Execute operations based on user selection
         switch (choice)
         {
             case "1":
-                await AdoptPet(); // Evcil hayvan sahiplen
+                await AdoptPet(); // Adopt a pet
                 break;
             case "2":
-                ViewPets(); // Mevcut evcil hayvanları görüntüle
+                ViewPets(); // View current pets
                 break;
             case "3":
-                await UseItem(); // Eşya kullan
+                await UseItem(); // Use item
                 break;
             case "4":
-                _isRunning = false; // Oyunu bitir
+                _isRunning = false; // Exit game
                 break;
             default:
-                Console.WriteLine("Invalid choice. Please try again."); // Hatalı giriş
+                Console.WriteLine("Invalid choice. Please try again."); // Invalid input
                 break;
         }
     }
 
     private async Task AdoptPet()
     {
-        // Evcil hayvan türünü seç
+        // Select pet type
         Console.WriteLine("\nChoose a pet type:");
         var petTypes = Enum.GetValues(typeof(PetType)).Cast<PetType>().ToList();
         var petTypeMenu = petTypes.Select((pt, i) => $"{i + 1}. {pt}").ToList();
@@ -111,7 +111,7 @@ public class Game
         var selection = menu.ShowAndGetSelection();
         if (selection == null) return;
 
-        // Seçim geçerliyse isim al ve hayvanı oluştur
+        // If selection is valid, get name and create pet
         if (int.TryParse(selection[0].ToString(), out int petChoice) && petChoice > 0 && petChoice <= petTypes.Count)
         {
             Console.Write("Enter pet name: ");
@@ -129,7 +129,7 @@ public class Game
 
     private void ViewPets()
     {
-        // Tüm evcil hayvanları görüntüle
+        // Display all pets
         var pets = _petManager.GetPets();
         if (pets.Count == 0)
         {
@@ -140,7 +140,7 @@ public class Game
             Console.WriteLine("\nYour pets:");
             foreach (var pet in pets)
             {
-                Console.WriteLine(pet); // Pet bilgilerini yazdır
+                Console.WriteLine(pet); // Print pet information
             }
         }
 
@@ -159,7 +159,7 @@ public class Game
             return;
         }
 
-        // Kullanıcının bir evcil hayvan seçmesini sağla
+        // Let user select a pet
         Console.WriteLine("\nSelect a pet:");
         var petMenu = pets.Select((p, i) => $"{i + 1}. {p}").ToList();
         var petMenuObj = new Menu<string>("Select Pet", petMenu, item => item);
@@ -172,7 +172,7 @@ public class Game
         }
         var selectedPet = pets[petChoice - 1];
 
-        // Seçilen evcil hayvana uygun olan eşyaları filtrele
+        // Filter items suitable for the selected pet
         var availableItems = ItemDatabase.AllItems.Where(i => i.CompatibleWith.Contains(selectedPet.Type)).ToList();
         if (availableItems.Count == 0)
         {
@@ -180,7 +180,7 @@ public class Game
             return;
         }
 
-        // Kullanıcıdan eşya seçmesini iste
+        // Ask user to select an item
         var itemMenu = availableItems.Select((i, idx) => $"{idx + 1}. {i.Name}").ToList();
         var itemMenuObj = new Menu<string>("Select Item", itemMenu, item => item);
         var itemSelection = itemMenuObj.ShowAndGetSelection();
@@ -192,11 +192,11 @@ public class Game
         }
         var selectedItem = availableItems[itemChoice - 1];
 
-        // Eşyayı uygula
+        // Use item
         Console.WriteLine($"Using {selectedItem.Name} on {selectedPet.Name}...");
         if (_petManager.UseItem(selectedItem, selectedPet))
         {
-            await Task.Delay((int)(selectedItem.Duration * 1000)); // Eşya etkisi süresince bekle
+            await Task.Delay((int)(selectedItem.Duration * 1000)); // Wait for item effect duration
             Console.WriteLine($"Successfully used {selectedItem.Name} on {selectedPet.Name}!");
         }
         else

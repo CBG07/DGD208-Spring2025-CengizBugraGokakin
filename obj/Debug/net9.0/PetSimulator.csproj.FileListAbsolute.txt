@@ -1,0 +1,15 @@
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net9.0\PetSimulator.exe
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net9.0\PetSimulator.deps.json
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net9.0\PetSimulator.runtimeconfig.json
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net9.0\PetSimulator.dll
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\bin\Debug\net9.0\PetSimulator.pdb
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.AssemblyInfoInputs.cache
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.AssemblyInfo.cs
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.sourcelink.json
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.dll
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\refint\PetSimulator.dll
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.pdb
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\PetSimulator.genruntimeconfig.cache
+C:\Users\Huseyin\Desktop\DGD208-Spring2025-CengizBugraGokakin\obj\Debug\net9.0\ref\PetSimulator.dll
